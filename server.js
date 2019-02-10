@@ -1,6 +1,8 @@
 var https = require('https');
 
+setInterval(getData, 60000);
 
+function getData() {
 var data = '';
 https.get('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson', function (res) {
     if (res.statusCode >= 200 && res.statusCode < 400) {
@@ -24,3 +26,4 @@ https.get('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.ge
         });
     }
 });
+}
